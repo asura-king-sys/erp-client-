@@ -14,6 +14,8 @@ const payrollRoutes = require('./modules/payroll/payroll.routes');
 const documentRoutes = require('./modules/documents/documents.routes');
 const dashboardRoutes = require('./modules/dashboard/dashboard.routes');
 
+
+
 const app = express();
 
 // Security middlewares
