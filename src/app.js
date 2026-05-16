@@ -3,14 +3,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 
-let authRoutes;
-try {
-  authRoutes = require('./modules/auth/auth.routes');
-  console.log('✅ Auth routes loaded');
-} catch (err) {
-  console.error('❌ Auth routes failed to load:', err.message);
-}
-
 // Route imports
 const authRoutes = require('./modules/auth/auth.routes');
 const employeeRoutes = require('./modules/employees/employees.routes');
@@ -21,8 +13,6 @@ const leaveRoutes = require('./modules/leave/leave.routes');
 const payrollRoutes = require('./modules/payroll/payroll.routes');
 const documentRoutes = require('./modules/documents/documents.routes');
 const dashboardRoutes = require('./modules/dashboard/dashboard.routes');
-
-
 
 const app = express();
 
@@ -44,7 +34,6 @@ app.use('/api/leave', leaveRoutes);
 app.use('/api/payroll', payrollRoutes);
 app.use('/api/documents', documentRoutes);
 app.use('/api/dashboard', dashboardRoutes);
-
 
 // Root route
 app.get('/', (req, res) => {
