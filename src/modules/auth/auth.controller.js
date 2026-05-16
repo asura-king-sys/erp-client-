@@ -6,7 +6,7 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const result = await db.query('SELECT * FROM users WHERE email = $1 AND is_active = TRUE', [email]);
+    const result = await db.query('SELECT * FROM users WHERE email = $1', [email]);
     const user = result.rows[0];
 
     if (!user) {
@@ -37,7 +37,6 @@ exports.login = async (req, res) => {
         token,
         user: {
           id: user.id,
-          username: user.username,
           email: user.email,
           role: user.role,
           employee_id: user.employee_id,
