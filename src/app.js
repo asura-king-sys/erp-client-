@@ -3,6 +3,14 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 
+let authRoutes;
+try {
+  authRoutes = require('./modules/auth/auth.routes');
+  console.log('✅ Auth routes loaded');
+} catch (err) {
+  console.error('❌ Auth routes failed to load:', err.message);
+}
+
 // Route imports
 const authRoutes = require('./modules/auth/auth.routes');
 const employeeRoutes = require('./modules/employees/employees.routes');
